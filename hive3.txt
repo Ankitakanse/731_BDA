@@ -1,0 +1,403 @@
+.com
+Time taken: 0.039 seconds, Fetched: 17 row(s)
+hive> select CustName,Custmailid from licdw.custdetails2;
+OK
+CustName	Custmailid
+Ankita	ank1234@gmail.com
+Anika	anika@gmail.com
+Anita	anita@gmail.com
+Shivay	shivayso@gmail.com
+NULL	NULL
+CustName	Custmailid
+Ankita	ank1234@gmail.com
+Anika	anika@gmail.com
+Anita	anita@gmail.com
+Shivay	shivayso@gmail.com
+NULL	NULL
+CustName	Custmailid
+Ankita	ank1234@gmail.com
+Anika	anika@gmail.com
+Anita	anita@gmail.com
+Shivay	shivayso@gmail.com
+Time taken: 0.041 seconds, Fetched: 17 row(s)
+hive> select CustName, count(*) from table group by CustName;
+FAILED: SemanticException Line 0:-1 Table not found 'table'
+hive> select CustName, count(*) from licdw.custdetails2 group by CustName;
+Query ID = cloudera_20230222222828_1ae6f32f-3725-4575-a441-b5e5a98f5de9
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1675401216338_0006, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1675401216338_0006/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1675401216338_0006
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-02-22 22:29:05,576 Stage-1 map = 0%,  reduce = 0%
+2023-02-22 22:29:11,907 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.57 sec
+2023-02-22 22:29:19,326 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.39 sec
+MapReduce Total cumulative CPU time: 1 seconds 390 msec
+Ended Job = job_1675401216338_0006
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 1.39 sec   HDFS Read: 8477 HDFS Write: 50 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 390 msec
+OK
+NULL	2
+Anika	3
+Anita	3
+Ankita	3
+CustName	3
+Shivay	3
+Time taken: 23.977 seconds, Fetched: 6 row(s)
+hive> select count(*) from licdw.custdetails2 group by CustName;
+Query ID = cloudera_20230222223030_88da0029-71ff-4a4f-ac05-c98cf0e92fb8
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1675401216338_0007, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1675401216338_0007/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1675401216338_0007
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-02-22 22:30:27,568 Stage-1 map = 0%,  reduce = 0%
+2023-02-22 22:30:33,861 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.55 sec
+2023-02-22 22:30:41,101 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.33 sec
+MapReduce Total cumulative CPU time: 1 seconds 330 msec
+Ended Job = job_1675401216338_0007
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 1.33 sec   HDFS Read: 8432 HDFS Write: 12 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 330 msec
+OK
+2
+3
+3
+3
+3
+3
+Time taken: 21.652 seconds, Fetched: 6 row(s)
+hive> select count(*) from licdw.custdetails2;
+Query ID = cloudera_20230222223030_0e80e447-e8a4-4de5-9451-467e9eff1d9e
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1675401216338_0008, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1675401216338_0008/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1675401216338_0008
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-02-22 22:31:04,745 Stage-1 map = 0%,  reduce = 0%
+2023-02-22 22:31:11,026 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.58 sec
+2023-02-22 22:31:18,332 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.37 sec
+MapReduce Total cumulative CPU time: 1 seconds 370 msec
+Ended Job = job_1675401216338_0008
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 1.37 sec   HDFS Read: 8216 HDFS Write: 3 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 370 msec
+OK
+17
+Time taken: 21.704 seconds, Fetched: 1 row(s)
+hive> load data local inpath '/home/cloudera/Desktop/data/policydetails' into table licdw.PolicyDetails;
+Loading data to table licdw.policydetails
+Table licdw.policydetails stats: [numFiles=3, numRows=0, totalSize=230, rawDataSize=0]
+OK
+Time taken: 0.064 seconds
+hive> select * from licdw.PolicyDetails;
+OK
+1	lic	life	18	tenure	nice
+2	lic	life	18	tenure	nice2
+3	lic	life	18	tenure	nice3
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+Time taken: 0.029 seconds, Fetched: 9 row(s)
+hive> load data local inpath '/home/cloudera/Desktop/data/policydetails' into table licdw.PolicyDetails;
+Loading data to table licdw.policydetails
+Table licdw.policydetails stats: [numFiles=4, numRows=0, totalSize=380, rawDataSize=0]
+OK
+Time taken: 0.054 seconds
+hive> select * from licdw.PolicyDetails;
+OK
+1	lic	life	18	tenure	nice
+2	lic	life	18	tenure	nice2
+3	lic	life	18	tenure	nice3
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL
+Time taken: 0.021 seconds, Fetched: 15 row(s)
+hive> create temporary table licdw.PolicyDetails2(
+    > policyid int,
+    > policyname string,
+    > policytype string,
+    > startingagecriteria int,
+    > tenure string,
+    > maturitybenefits string)
+    > comment 'Policy table'
+    > row format delimited
+    > fields terminated by ',';
+OK
+Time taken: 0.038 seconds
+hive> load data local inpath '/home/cloudera/Desktop/data/policydetails' into table licdw.PolicyDetails2;
+Loading data to table licdw.policydetails2
+Table licdw.policydetails2 stats: [numFiles=1, totalSize=150]
+OK
+Time taken: 0.035 seconds
+hive> select * from licdw.PolicyDetails2;
+OK
+83473	trade	Health	34	20	30%
+83474	union	Motor	18	5	40%
+83475	backwardhome	home	35	50	40%
+83476	Lpg	fire	16	10	60%
+83477	smallvillage	travel	5	1	40%
+NULL	NULL	NULL	NULL	NULL	NULL
+Time taken: 0.023 seconds, Fetched: 6 row(s)
+hive> SELECT MAX(maturitybenefits) AS label FROM licdw.PolicyDetails2;
+Query ID = cloudera_20230222225050_caa7f04d-1027-45b6-8bb3-f59b17af1d2b
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1675401216338_0009, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1675401216338_0009/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1675401216338_0009
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2023-02-22 22:50:23,039 Stage-1 map = 0%,  reduce = 0%
+2023-02-22 22:50:29,340 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 0.58 sec
+2023-02-22 22:50:36,647 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 1.34 sec
+MapReduce Total cumulative CPU time: 1 seconds 340 msec
+Ended Job = job_1675401216338_0009
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 1.34 sec   HDFS Read: 7500 HDFS Write: 4 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 340 msec
+OK
+60%
+Time taken: 22.41 seconds, Fetched: 1 row(s)
+hive> select * from licdw.PolicyDetails2 where tenure between 15 and 60;
+OK
+83473	trade	Health	34	20	30%
+83475	backwardhome	home	35	50	40%
+Time taken: 0.039 seconds, Fetched: 2 row(s)
+hive> select policyid,policyname,policytype from licdw.PolicyDetails2;
+OK
+83473	trade	Health
+83474	union	Motor
+83475	backwardhome	home
+83476	Lpg	fire
+83477	smallvillage	travel
+NULL	NULL	NULL
+Time taken: 0.028 seconds, Fetched: 6 row(s)
+hive> SELECT pet.name, comment FROM pet JOIN event ON 
+    > (pet.name = event.name);
+FAILED: SemanticException [Error 10001]: Line 1:30 Table not found 'pet'
+hive> SELECT .name, comment FROM pet JOIN event ON 
+    > 
+    > ;
+NoViableAltException(17@[])
+	at org.apache.hadoop.hive.ql.parse.HiveParser_SelectClauseParser.selectClause(HiveParser_SelectClauseParser.java:1042)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectClause(HiveParser.java:44365)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.singleSelectStatement(HiveParser.java:41487)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectStatement(HiveParser.java:41193)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.regularBody(HiveParser.java:41130)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpressionBody(HiveParser.java:40183)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpression(HiveParser.java:40059)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:1519)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1057)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:199)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:393)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:307)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1110)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1158)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1047)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1037)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:207)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:159)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:370)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:756)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:675)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+FAILED: ParseException line 1:7 cannot recognize input near '.' 'name' ',' in select clause
+hive> use licdw;
+OK
+Time taken: 0.008 seconds
+hive> SELECT custdetails3.CustName, comment FROM custdetails3 JOIN event ON 
+    > (pet.name = event.name);
+FAILED: SemanticException [Error 10001]: Line 1:61 Table not found 'event'
+hive> SELECT custdetails3.CustName, comment FROM custdetails3 JOIN PolicyDetails2 ON 
+    > (custdetails3.CustName =PolicyDetails2 ON  );
+NoViableAltException(173@[269:1: atomExpression : ( KW_NULL -> TOK_NULL | constant | castExpression | caseExpression | whenExpression | ( functionName LPAREN )=> function | tableOrColumn | LPAREN ! expression RPAREN !);])
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser$DFA32.specialStateTransition(HiveParser_IdentifiersParser.java:15155)
+	at org.antlr.runtime.DFA.predict(DFA.java:80)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.atomExpression(HiveParser_IdentifiersParser.java:6435)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceFieldExpression(HiveParser_IdentifiersParser.java:6641)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceUnaryPrefixExpression(HiveParser_IdentifiersParser.java:7026)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceUnarySuffixExpression(HiveParser_IdentifiersParser.java:7086)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceBitwiseXorExpression(HiveParser_IdentifiersParser.java:7270)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceStarExpression(HiveParser_IdentifiersParser.java:7430)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedencePlusExpression(HiveParser_IdentifiersParser.java:7590)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceAmpersandExpression(HiveParser_IdentifiersParser.java:7750)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceBitwiseOrExpression(HiveParser_IdentifiersParser.java:7909)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceEqualExpression(HiveParser_IdentifiersParser.java:8565)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceNotExpression(HiveParser_IdentifiersParser.java:9452)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceAndExpression(HiveParser_IdentifiersParser.java:9571)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceOrExpression(HiveParser_IdentifiersParser.java:9730)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.expression(HiveParser_IdentifiersParser.java:6363)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.atomExpression(HiveParser_IdentifiersParser.java:6570)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceFieldExpression(HiveParser_IdentifiersParser.java:6641)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceUnaryPrefixExpression(HiveParser_IdentifiersParser.java:7026)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceUnarySuffixExpression(HiveParser_IdentifiersParser.java:7086)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceBitwiseXorExpression(HiveParser_IdentifiersParser.java:7270)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceStarExpression(HiveParser_IdentifiersParser.java:7430)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedencePlusExpression(HiveParser_IdentifiersParser.java:7590)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceAmpersandExpression(HiveParser_IdentifiersParser.java:7750)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceBitwiseOrExpression(HiveParser_IdentifiersParser.java:7909)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceEqualExpression(HiveParser_IdentifiersParser.java:8439)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceNotExpression(HiveParser_IdentifiersParser.java:9452)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceAndExpression(HiveParser_IdentifiersParser.java:9571)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.precedenceOrExpression(HiveParser_IdentifiersParser.java:9730)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_IdentifiersParser.expression(HiveParser_IdentifiersParser.java:6363)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.expression(HiveParser.java:44344)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.joinSource(HiveParser_FromClauseParser.java:1883)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_FromClauseParser.fromClause(HiveParser_FromClauseParser.java:1478)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.fromClause(HiveParser.java:44339)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.singleSelectStatement(HiveParser.java:41508)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectStatement(HiveParser.java:41193)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.regularBody(HiveParser.java:41130)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpressionBody(HiveParser.java:40183)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpression(HiveParser.java:40059)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:1519)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1057)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:199)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:393)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:307)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1110)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1158)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1047)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1037)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:207)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:159)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:370)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:756)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:675)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+FAILED: ParseException line 2:39 cannot recognize input near 'PolicyDetails2' 'ON' ')' in expression specification
+hive> SELECT custdetails3.CustName, comment FROM custdetails3 JOIN PolicyDetails2 ON 
+    > (custdetails3.CustName =PolicyDetails2.policyname);
+FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'comment': (possible column names are: custdetails3.custid, custdetails3.custname, custdetails3.dob, custdetails3.gender, custdetails3.custaddress, custdetails3.contact, custdetails3.custmailid, policydetails2.policyid, policydetails2.policyname, policydetails2.policytype, policydetails2.startingagecriteria, policydetails2.tenure, policydetails2.maturitybenefits)
+hive> SELECT custdetails3.CustName, comment FROM custdetails3 JOIN PolicyDetails2 ON; 
+hive> SELECT custdetails3.custname, comment FROM custdetails3 JOIN PolicyDetails2 ON 
+    > (custdetails3.custname =PolicyDetails2.policyname);
+FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'comment': (possible column names are: custdetails3.custid, custdetails3.custname, custdetails3.dob, custdetails3.gender, custdetails3.custaddress, custdetails3.contact, custdetails3.custmailid, policydetails2.policyid, policydetails2.policyname, policydetails2.policytype, policydetails2.startingagecriteria, policydetails2.tenure, policydetails2.maturitybenefits)
+hive> SELECT custdetails3.custname, comment FROM custdetails3 JOIN PolicyDetails2 ON 
+    > (custdetails3.custname =policydetails2.policyname);
+FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'comment': (possible column names are: custdetails3.custid, custdetails3.custname, custdetails3.dob, custdetails3.gender, custdetails3.custaddress, custdetails3.contact, custdetails3.custmailid, policydetails2.policyid, policydetails2.policyname, policydetails2.policytype, policydetails2.startingagecriteria, policydetails2.tenure, policydetails2.maturitybenefits)
+hive> SELECT custdetails3.custname FROM custdetails3 JOIN policydetails2 ON 
+    > (custdetails3.custname =policydetails2.policyname);
+Query ID = cloudera_20230222231414_dbe107d8-9c70-4e9b-a489-8fada52821c3
+Total jobs = 1
+Execution log at: /tmp/cloudera/cloudera_20230222231414_dbe107d8-9c70-4e9b-a489-8fada52821c3.log
+2023-02-22 11:15:03	Starting to launch local task to process map join;	maximum memory = 1013645312
+2023-02-22 11:15:04	Dump the side-table for tag: 1 with group count: 5 into file: file:/tmp/cloudera/a60fe6c2-07ff-43a2-ac97-714a70ac868d/hive_2023-02-22_23-14-59_289_2114767628458746325-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile01--.hashtable
+2023-02-22 11:15:04	Uploaded 1 File to: file:/tmp/cloudera/a60fe6c2-07ff-43a2-ac97-714a70ac868d/hive_2023-02-22_23-14-59_289_2114767628458746325-1/-local-10003/HashTable-Stage-3/MapJoin-mapfile01--.hashtable (387 bytes)
+2023-02-22 11:15:04	End of local task; Time Taken: 1.326 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1675401216338_0010, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1675401216338_0010/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1675401216338_0010
+Hadoop job information for Stage-3: number of mappers: 2; number of reducers: 0
+2023-02-22 23:15:12,167 Stage-3 map = 0%,  reduce = 0%
+2023-02-22 23:15:22,831 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 1.78 sec
+MapReduce Total cumulative CPU time: 1 seconds 780 msec
+Ended Job = job_1675401216338_0010
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 2   Cumulative CPU: 1.78 sec   HDFS Read: 15643 HDFS Write: 42 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 780 msec
+OK
+trade
+union
+backwardhome
+Lpg
+smallvillage
+Time taken: 25.624 seconds, Fetched: 5 row(s)
+hive> SELECT custdetails3.custname ,comment FROM custdetails3 JOIN policydetails2 ON 
+    > (custdetails3.custname =policydetails2.policyname);
+FAILED: SemanticException Line 0:-1 Invalid table alias or column reference 'comment': (possible column names are: custdetails3.custid, custdetails3.custname, custdetails3.dob, custdetails3.gender, custdetails3.custaddress, custdetails3.contact, custdetails3.custmailid, policydetails2.policyid, policydetails2.policyname, policydetails2.policytype, policydetails2.startingagecriteria, policydetails2.tenure, policydetails2.maturitybenefits)
+hive> SELECT custdetails3.custname , FROM custdetails3 JOIN policydetails2 ON 
+    > (custdetails3.custname =policydetails2.policyname);
+NoViableAltException(116@[124:1: selectItem : ( ( expression ( ( ( KW_AS )? identifier ) | ( KW_AS LPAREN identifier ( COMMA identifier )* RPAREN ) )? ) -> ^( TOK_SELEXPR expression ( identifier )* ) | tableAllColumns -> ^( TOK_SELEXPR tableAllColumns ) );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_SelectClauseParser.selectItem(HiveParser_SelectClauseParser.java:3049)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_SelectClauseParser.selectList(HiveParser_SelectClauseParser.java:1348)
+	at org.apache.hadoop.hive.ql.parse.HiveParser_SelectClauseParser.selectClause(HiveParser_SelectClauseParser.java:1083)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectClause(HiveParser.java:44365)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.singleSelectStatement(HiveParser.java:41487)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.selectStatement(HiveParser.java:41193)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.regularBody(HiveParser.java:41130)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpressionBody(HiveParser.java:40183)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.queryStatementExpression(HiveParser.java:40059)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:1519)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1057)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:199)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:393)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:307)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1110)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1158)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1047)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1037)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:207)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:159)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:370)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:756)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:675)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+FAILED: ParseException line 1:31 cannot recognize input near 'FROM' 'custdetails3' 'JOIN' in selection target
+hive> 

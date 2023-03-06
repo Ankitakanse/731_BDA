@@ -1,0 +1,347 @@
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> 
+[1]+  Stopped                 hive
+[cloudera@quickstart ~]$ hive --version
+Hive 1.1.0-cdh5.4.2
+Subversion file:///data/jenkins/workspace/generic-package-rhel64-6-0/topdir/BUILD/hive-1.1.0-cdh5.4.2 -r Unknown
+Compiled by jenkins on Tue May 19 17:00:20 PDT 2015
+From source with checksum a59d7ebf7b9b9e41446f10bcf5274d93
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> show databases
+    > create [cloudera@quickstart ~]$ 
+[cloudera@quickstart ~]$ CREATE DATABASE IF NOT EXISTS emp;
+bash: CREATE: command not found
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> create database if not exists emp;
+OK
+Time taken: 1.089 seconds
+hive> show databases;
+OK
+default
+emp
+Time taken: 0.131 seconds, Fetched: 2 row(s)
+hive> use emp;
+OK
+Time taken: 0.089 seconds
+hive> show databases like 'e';
+OK
+Time taken: 0.035 seconds
+hive> show databases like 'e*';
+OK
+emp
+Time taken: 0.008 seconds, Fetched: 1 row(s)
+hive> create database if not exists RJCollege;
+OK
+Time taken: 0.029 seconds
+hive> create database if not exists RJCollege.student(
+    > create database if not exists RJCollege.student;
+FAILED: ParseException line 1:39 missing EOF at '.' near 'RJCollege'
+hive> create database if not exists RJCollege.student;
+FAILED: ParseException line 1:39 missing EOF at '.' near 'RJCollege'
+hive> 
+    > CREATE TABLE IF NOT EXISTS emp.employee (
+    >  id int,
+    >  name string,
+    >  age int,
+    >  gender string )
+    >  COMMENT 'Employee Table'
+    >  ROW FORMAT DELIMITED
+    >  FIELDS TERMINATED BY ',';
+OK
+Time taken: 0.273 seconds
+hive> describe employee;
+OK
+id                  	int                 	                    
+name                	string              	                    
+age                 	int                 	                    
+gender              	string              	                    
+Time taken: 0.077 seconds, Fetched: 4 row(s)
+hive> DESCRIBE FORMATTED employee;
+OK
+# col_name            	data_type           	comment             
+	 	 
+id                  	int                 	                    
+name                	string              	                    
+age                 	int                 	                    
+gender              	string              	                    
+	 	 
+# Detailed Table Information	 	 
+Database:           	emp                 	 
+Owner:              	cloudera            	 
+CreateTime:         	Sun Feb 19 22:46:06 PST 2023	 
+LastAccessTime:     	UNKNOWN             	 
+Protect Mode:       	None                	 
+Retention:          	0                   	 
+Location:           	hdfs://quickstart.cloudera:8020/user/hive/warehouse/emp.db/employee	 
+Table Type:         	MANAGED_TABLE       	 
+Table Parameters:	 	 
+	comment             	Employee Table      
+	transient_lastDdlTime	1676875566          
+	 	 
+# Storage Information	 	 
+SerDe Library:      	org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe	 
+InputFormat:        	org.apache.hadoop.mapred.TextInputFormat	 
+OutputFormat:       	org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat	 
+Compressed:         	No                  	 
+Num Buckets:        	-1                  	 
+Bucket Columns:     	[]                  	 
+Sort Columns:       	[]                  	 
+Storage Desc Params:	 	 
+	field.delim         	,                   
+	serialization.format	,                   
+Time taken: 0.057 seconds, Fetched: 31 row(s)
+hive> create database if not exists RJCollege.student;
+FAILED: ParseException line 1:39 missing EOF at '.' near 'RJCollege'
+hive> create database if not exists RJCollege;
+OK
+Time taken: 0.019 seconds
+hive> 
+[2]+  Stopped                 hive
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/cloudera/warehouse
+ls: `/user/cloudera/warehouse': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -ls /usr/cloudera/warehouse
+ls: `/usr/cloudera/warehouse': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -ls /usr
+ls: `/usr': No such file or directory
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> 
+[3]+  Stopped                 hive
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/hive/warehouse
+Found 2 items
+drwxrwxrwx   - cloudera hive          0 2023-02-19 22:46 /user/hive/warehouse/emp.db
+drwxrwxrwx   - cloudera hive          0 2023-02-19 22:41 /user/hive/warehouse/rjcollege.db
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> 
+[4]+  Stopped                 hive
+[cloudera@quickstart ~]$ gedit.txt
+bash: gedit.txt: command not found
+[cloudera@quickstart ~]$ gedit studData.txt
+[cloudera@quickstart ~]$ hdfs dfs -put /cloudera/studData.txt /
+put: `/cloudera/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -mkdir stuank
+[cloudera@quickstart ~]$ hdfs dfs -put /cloudera/studData.txt /stuank
+put: `/cloudera/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -put /studData.txt /stuank
+put: `/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -copyFromLocal /studData.txt /stuank
+copyFromLocal: `/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -copyFromLocal /cloudera/studData.txt /stuank
+copyFromLocal: `/cloudera/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -ls/
+-ls/: Unknown command
+[cloudera@quickstart ~]$ hdfs dfs -ls /
+Found 12 items
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 19:56 /charinputdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 20:00 /charoutputdir
+drwxr-xr-x   - hbase    supergroup          0 2023-02-02 21:14 /hbase
+drwxr-xr-x   - cloudera supergroup          0 2023-01-20 23:25 /input
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 19:25 /inputdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-16 20:25 /myhdfsdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-22 22:50 /op1
+drwxr-xr-x   - cloudera supergroup          0 2023-01-22 23:01 /outputdir
+drwxr-xr-x   - solr     solr                0 2015-06-09 03:38 /solr
+drwxrwxrwx   - hdfs     supergroup          0 2022-11-11 19:50 /tmp
+drwxr-xr-x   - hdfs     supergroup          0 2022-11-07 00:22 /user
+drwxr-xr-x   - hdfs     supergroup          0 2015-06-09 03:36 /var
+[cloudera@quickstart ~]$ hdfs dfs -mkdir /stuank
+[cloudera@quickstart ~]$ hdfs dfs -ls /
+Found 13 items
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 19:56 /charinputdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 20:00 /charoutputdir
+drwxr-xr-x   - hbase    supergroup          0 2023-02-02 21:14 /hbase
+drwxr-xr-x   - cloudera supergroup          0 2023-01-20 23:25 /input
+drwxr-xr-x   - cloudera supergroup          0 2023-01-23 19:25 /inputdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-16 20:25 /myhdfsdir
+drwxr-xr-x   - cloudera supergroup          0 2023-01-22 22:50 /op1
+drwxr-xr-x   - cloudera supergroup          0 2023-01-22 23:01 /outputdir
+drwxr-xr-x   - solr     solr                0 2015-06-09 03:38 /solr
+drwxr-xr-x   - cloudera supergroup          0 2023-02-19 23:16 /stuank
+drwxrwxrwx   - hdfs     supergroup          0 2022-11-11 19:50 /tmp
+drwxr-xr-x   - hdfs     supergroup          0 2022-11-07 00:22 /user
+drwxr-xr-x   - hdfs     supergroup          0 2015-06-09 03:36 /var
+[cloudera@quickstart ~]$ hdfs dfs -put home/cloudera/studData.txt /stuank/
+put: `home/cloudera/studData.txt': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /stuank/
+[cloudera@quickstart ~]$ 
+[cloudera@quickstart ~]$ LOAD DATA INPATH '/user/hive/data/data.txt' INTO TABLE emp.employee;
+bash: LOAD: command not found
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> load data inpath '/user/hive/data/studData.txt' into table RJCollege.student;
+FAILED: SemanticException [Error 10001]: Line 1:59 Table not found 'student'
+hive> CREATE TABLE IF NOT EXISTS RJCollege.student(
+    > id int,
+    > name string,
+    > class string,
+    > class2 string,
+    > marks float)
+    > comment 'student table'
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ',';
+OK
+Time taken: 0.194 seconds
+hive> DESCRIBE RJCollege.student;
+OK
+id                  	int                 	                    
+name                	string              	                    
+class               	string              	                    
+class2              	string              	                    
+marks               	float               	                    
+Time taken: 0.095 seconds, Fetched: 5 row(s)
+hive> load data inpath '/user/hive/data/studData.txt' into table RJCollege.student;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/hive/data/studData.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/hive/data/studData.txt
+hive> load data inpath '/user/hive/warehouse/studData.txt' into table RJCollege.student;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/hive/warehouse/studData.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/hive/warehouse/studData.txt
+hive> 
+[5]+  Stopped                 hive
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /user/hive/warehouse/
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> load data inpath '/user/hive/warehouse/studData.txt' into table RJCollege.student;
+Loading data to table rjcollege.student
+Table rjcollege.student stats: [numFiles=1, totalSize=33]
+OK
+Time taken: 1.057 seconds
+hive> describe RJCollege.student
+    > describe RJCollege.student;
+FAILED: ParseException line 2:9 missing EOF at 'RJCollege' near 'describe'
+hive> DESCRIBE RJCollege.student;
+OK
+id                  	int                 	                    
+name                	string              	                    
+class               	string              	                    
+class2              	string              	                    
+marks               	float               	                    
+Time taken: 0.175 seconds, Fetched: 5 row(s)
+hive> 
+[6]+  Stopped                 hive
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/hive/warehouse/RJCollege.db/student/
+ls: `/user/hive/warehouse/RJCollege.db/student/': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /user/hive/warehouse/RJCollege.db/student
+put: `/user/hive/warehouse/RJCollege.db/student': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /user/hive/warehouse/RJCollege.db/
+put: `/user/hive/warehouse/RJCollege.db/': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/hive/warehouse
+Found 2 items
+drwxrwxrwx   - cloudera hive          0 2023-02-19 22:46 /user/hive/warehouse/emp.db
+drwxrwxrwx   - cloudera hive          0 2023-02-19 23:25 /user/hive/warehouse/rjcollege.db
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> create CREATE DATABASE IF NOT EXISTS ankita;
+NoViableAltException(66@[682:1: ddlStatement : ( createDatabaseStatement | switchDatabaseStatement | dropDatabaseStatement | createTableStatement | dropTableStatement | truncateTableStatement | alterStatement | descStatement | showStatement | metastoreCheck | createViewStatement | dropViewStatement | createFunctionStatement | createMacroStatement | createIndexStatement | dropIndexStatement | dropFunctionStatement | dropMacroStatement | analyzeStatement | lockStatement | unlockStatement | lockDatabase | unlockDatabase | createRoleStatement | dropRoleStatement | grantPrivileges | revokePrivileges | showGrants | showRoleGrants | showRolePrincipals | showRoles | grantRole | revokeRole | setRole | showCurrentRole );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:144)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.ddlStatement(HiveParser.java:2301)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.execStatement(HiveParser.java:1579)
+	at org.apache.hadoop.hive.ql.parse.HiveParser.statement(HiveParser.java:1057)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:199)
+	at org.apache.hadoop.hive.ql.parse.ParseDriver.parse(ParseDriver.java:166)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:393)
+	at org.apache.hadoop.hive.ql.Driver.compile(Driver.java:307)
+	at org.apache.hadoop.hive.ql.Driver.compileInternal(Driver.java:1110)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1158)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1047)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1037)
+	at org.apache.hadoop.hive.cli.CliDriver.processLocalCmd(CliDriver.java:207)
+	at org.apache.hadoop.hive.cli.CliDriver.processCmd(CliDriver.java:159)
+	at org.apache.hadoop.hive.cli.CliDriver.processLine(CliDriver.java:370)
+	at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:756)
+	at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:675)
+	at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:615)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+FAILED: ParseException line 1:7 cannot recognize input near 'create' 'CREATE' 'DATABASE' in ddl statement
+hive> CREATE DATABASE IF NOT EXISTS ankita;
+OK
+Time taken: 0.156 seconds
+hive> 
+[7]+  Stopped                 hive
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/hive/warehouse
+Found 3 items
+drwxrwxrwx   - cloudera hive          0 2023-02-19 23:41 /user/hive/warehouse/ankita.db
+drwxrwxrwx   - cloudera hive          0 2023-02-19 22:46 /user/hive/warehouse/emp.db
+drwxrwxrwx   - cloudera hive          0 2023-02-19 23:25 /user/hive/warehouse/rjcollege.db
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /user/hive/warehouse/rjcollege.db/student/
+put: `/user/hive/warehouse/rjcollege.db/student/studData.txt': File exists
+[cloudera@quickstart ~]$ hdfs dfs -ls /user/hive/warehouse/rjcollege.dbFound 1 items
+drwxrwxrwx   - cloudera hive          0 2023-02-19 23:31 /user/hive/warehouse/rjcollege.db/student
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/studData.txt /user/hive/warehouse/rjcollege.db/student
+put: `/user/hive/warehouse/rjcollege.db/student/studData.txt': File exists
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> LOAD DATA INPATH '/user/hive/warehouse/rjcollege.db/student/studData.txt' INTO TABLE rjcollege.student;
+Loading data to table rjcollege.student
+Table rjcollege.student stats: [numFiles=1, totalSize=33]
+OK
+Time taken: 1.01 seconds
+hive> DESCRIBE FORMATTED student;
+FAILED: SemanticException [Error 10001]: Table not found student
+hive> DESCRIBE FORMATTED rjcollege.db.student;
+FAILED: SemanticException [Error 10004]: Invalid table alias or column reference rjcollege.db.student
+hive> LOAD DATA INPATH '/user/cloudera/studData.txt' INTO TABLE rjcollege.student;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/cloudera/studData.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/cloudera/studData.txt
+hive> 
+[8]+  Stopped                 hive
+[cloudera@quickstart ~]$ ls
+abc                  enterprise-deployment.json  pig_1667809783814.log  reducer.py~
+abc~                 express-deployment.json     pig_1668224269562.log  SemII2023
+ank                  fromhdfs                    pig_1668224586419.log  studData.txt
+charcounterdata.txt  kerberos                    pig_1668224921467.log  studData.txt~
+CharCount.jar        lib                         pig_1668224998445.log  Templates
+cloudera-manager     mapper1.py                  pqr                    test.txt
+cm_api.py            mapper1.py~                 pqr~                   Videos
+Desktop              mapper.py                   Public                 weather.txt
+Documents            mapper.py~                  reducer1.py            WordCount.jar
+Downloads            Music                       reducer1.py~           workspace
+eclipse              Pictures                    reducer.py
+[cloudera@quickstart ~]$ hive
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j.properties
+WARNING: Hive CLI is deprecated and migration to Beeline is recommended.
+hive> 
+    > LOAD DATA INPATH '/user/hive/data/data.txt' INTO TABLE emp.employee;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/hive/data/data.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/hive/data/data.txt
+hive> 
+    > LOAD DATA INPATH '/user/hive/data/data.txt' INTO TABLE emp.employee;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/hive/data/data.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/hive/data/data.txt
+hive> LOAD DATA INPATH '/user/cloudera/studData.txt' INTO TABLE RJCollege.student;
+FAILED: SemanticException Line 1:17 Invalid path ''/user/cloudera/studData.txt'': No files matching path hdfs://quickstart.cloudera:8020/user/cloudera/studData.txt
+hive> LOAD DATA local INPATH '/home/cloudera/studData.txt' INTO TABLE RJCollege.student;
+Loading data to table rjcollege.student
+Table rjcollege.student stats: [numFiles=2, totalSize=93]
+OK
+Time taken: 0.878 seconds
+hive> select * from RJCollege.student;
+OK
+NULL	name	class	class2	NULL
+1	'Amit'	'MSCDSAI'	'PART1'	67.89
+1	'Amit'	'MSCDSAI'	'PART1'	67.89
+Time taken: 0.604 seconds, Fetched: 3 row(s)
+hive> 
