@@ -1,0 +1,181 @@
+db.student.aggregate([{$match: {gender:"Female"}},{$project:{name:1,class:1,age:1,Result:1,Total_fees:{$abs:{$add:["$fees","$exam_fees"]}}}}])
+db.student.aggregate([{$match: {gender:"Female"}},{$project:{std_name:1,class:1,age:1,floor_grade:{$floor:"$grade"}}}])
+db.items.aggregate([{$match:{item_name:"Apple"}},{$project:{item_name:1,total_Price:1,quantity:1,remainderValue:{$mod:["$total_Price","$quantity"]}}}])
+db.student.aggregate([
+  {$match:{gender:"Female"}},{$project:{std_name:1,class:1,age:1,result:1,Total_Fees:{$abs:{$add:["$fees","$exam_fees"]}}}}
+]);
+
+
+
+
+
+
+1) db.shapes.aggregate([{$match:{name:"rectangle"}},{$project:{name:1,area:1,logArea:{$log:["$area",10]}}}])
+
+
+2) db.items.aggregate([{$match:{item_name:"Banana"}},{$project:{item_name:1,total_Price:1,quantity:1,remainderValue:{$mod:["$total_Price","$quantity"]}}}])
+
+
+3) db.hwproducts.aggregate([{$match:{name:"Mobile"}},{$project:{name:1,totalPrice:1,totalQuantity:1,mobilePrice:{$divide:["$totalPrice","$totalQuantity"]}}}])
+
+
+4) db.swproducts.aggregate([{$match:{name:"BlueBox"}},{$project:{name:1,_id:1,Price:{$multiply:["$x","$y"]}}}])
+
+
+5) db.shapes1.aggregate([{$match:{name:"rectangle"}},{$project:{name:1,area:1,powerArea:{$pow:["$area",3]}}}])
+
+
+6) db.toys.aggregate([{$match:{item_name:"bat"}},{$project:{item_name:1,quantity:1,result:{$sqrt:["quantity"]}}}])
+
+
+7) db.students.aggregate([{$match:{department:"MCA"}},{$project:{std_name:1,father_name:1,annual_fee:1,semester_fee:1,result:{$subtract:["$annual_fee","$semester_fee"]}}}])
+
+db.instrument.insertMany([{
+"_id" : 1,
+"name" : "pen",
+"data" : 11.25
+},
+{
+"_id" : 2,
+"name" : "pencil",
+"data" : 10.32
+},
+{
+"_id" : 3,
+"name" : "box",
+"data" : 15.97
+},
+{
+"_id" : 4,
+"name" : "bottle",
+"data" : -12.3
+},
+{
+"_id" : 5,
+"name" : "oval",
+"data" : 20.6
+},
+{
+"_id" : 6,
+"name" : "triangle",
+"data" : 5
+},
+{
+"_id" : 7,
+"name" : "bottle",
+"data" : -1
+}])
+
+
+db.college.insertMany([{
+"_id" : 1,
+"name" : "Steve",
+"surname" : "Smith",
+"department" : "B-tech",
+"fees" : 80000
+},
+{
+"_id" : 2,
+"name" : "Sandy",
+"surname" : "Beach",
+"department" : "BCA",
+"fees" : 55000
+},
+{
+"_id" : 3,
+"name" : "John",
+"surname" : "Cena",
+"department" : "MCA",
+"fees" : 85000
+},
+{
+"_id" : 4,
+"name" : "Wick",
+"surname" : "John",
+"department" : "B.com",
+"fees" : 60000
+},
+{
+"_id" : 5,
+"name" : "David",
+"surname" : "Silva",
+"department" : "null",
+"fees" : 80000
+}
+])
+
+
+db.school.insertMany([{
+"_id" : 1,
+"name" : "Jonny",
+"class" : "X",
+"rollNo" : 401,
+"age" : 18,
+"marks" : [ 55, 60, 70, 45, 95, 68 ],
+"extraMarks" : {
+"practical" : [ 21, 18, 25, 30 ],
+"attendance" : [ 5, 9 ]
+},
+"gender" : "Male",
+"bloodgroup" : "A+"
+},
+{
+"_id" : 2,
+"name" : "Carry",
+"class" : "IX",
+"rollNo" : 35,
+"age" : 17,
+"marks" : [ 85, 40, 90, 75, 85, 77 ],
+"gender" : "Male",
+"bloodgroup" : "B+"
+},
+{
+"_id" : 3,
+"name" : "Jin",
+"class" : "IX",
+"rollNo" : 49,
+"age" : 17,
+"marks" : [ 85, 70, 80, 95, 94, 81 ],
+"gender" : "Female",
+"bloodgroup" : "O+"
+},
+{
+"_id" : 4,
+"name" : "Thomas",
+"class" : "X",
+"rollNo" : 61,
+"age" : 18,
+"marks" : [ 91, 65, 71, 63, 98, 76 ],
+"extraMarks" : {
+"practical" : [ 26, 28, 25, 29 ],
+"attendance" : [ 8, 8 ]
+},
+"gender" : "Male",
+"bloodgroup" : "A+"
+},
+{
+"_id" : 5,
+"name" : "Mia",
+"class" : "IX",
+"rollNo" : 308,
+"age" : 17,
+"marks" : [ 97, 98, 95, 98 ],
+"gender" : "Female",
+"bloodgroup" : "B+"
+},
+{
+"_id" : 6,
+"name" : "Oats",
+"class" : "IX",
+"rollNo" : 75,
+"age" : 18,
+"marks" : [ 99, 98, 98, 95, 96 ],
+"gender" : "Male",
+"bloodgroup" : "A+"
+}])
+
+
+
+
+
+ 
